@@ -72,7 +72,7 @@ class Lighter
 
     private static function dispatch()
     {
-        $url = isset($_GET['url']) ? $_GET['url'] : 'home/view'; //If the URL is not set, redirect to home
+        $url = isset($_GET['url']) ? $_GET['url'] : 'home'; //If the URL is not set, redirect to home
         $url = explode('/', rtrim($url, '/')); //Trim all the / behind URL and then split according to /
 
         $url[0] = $url[0].'Controller';

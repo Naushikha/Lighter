@@ -4,11 +4,12 @@ class testController extends Controller
 {
     public function __view()
     {
-        echo 'is it working?';
+        alert('This is a message');
+        $this->load->viewTemplate('Test', 'home');
     }
 
     public function view()
     {
-        echo 'You reached the test controller!';
+        echo 'You reached the test controller view method!';
     }
 }

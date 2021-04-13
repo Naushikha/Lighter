@@ -45,4 +45,37 @@ class load
 
         require VIEW_PATH.'template_footer.php';
     }
+
+    // View a Lighter modal
+    public function viewModal($title, $page, $data = '')
+    {
+        $page = 'modal_'.$page;
+        if (file_exists(VIEW_PATH.$page.'.php')) {
+            ob_start();
+
+            include VIEW_PATH.$page.'.php';
+            $res = ob_get_contents();
+            ob_end_clean();
+
+            echo json_encode([
+                'title' => $title,
+                'content' => $res,
+            ]);
+        }
+    }
+
+    // View a Lighter fragment(frag)
+    public function viewFrag($page, $data = '')
+    {
+        $page = 'frag_'.$page;
+        if (file_exists(VIEW_PATH.$page.'.php')) {
+            ob_start();
+
+            include VIEW_PATH.$page.'.php';
+            $res = ob_get_contents();
+            ob_end_clean();
+
+            return $res;
+        }
+    }
 }

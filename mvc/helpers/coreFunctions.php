@@ -27,6 +27,7 @@ function logging($type, $msg)
     // $logging->insert($type, $msg);
 }
 
+// Show a Lighter alert on next template load
 function alert($msg, $type = '')
 {
     $_SESSION['alert_type'] = $type;

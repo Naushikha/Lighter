@@ -31,7 +31,7 @@ https://youtube.com/playlist?list=PLVvjrrRCBy2LucxKovfKWrfuFYDhN4cw6
   position: relative;
   width: 100%;
   max-width: 960px;
-  margin: 3rem auto;
+  margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -581,7 +581,6 @@ hr {
   content: "";
   display: table;
   clear: both;
-  margin-top: 1rem; /* Set margin top for each row. */
 }
 
 /* Media Queries
@@ -617,4 +616,8 @@ there.
 
 textarea {
   resize: none;
+}
+
+.container-padding {
+  margin: 3rem auto !important;
 }

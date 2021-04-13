@@ -1,13 +1,11 @@
 <?php
 
-class Controller{
-
+class Controller
+{
     protected $load;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->load = new load();
     }
-
 }
-
-?>
