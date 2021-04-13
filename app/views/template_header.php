@@ -18,7 +18,7 @@
 			<nav class="nav-show">
 				<div class="container">
 					<ul>
-						<li><a id="logo" href="<?php echo BASEURL; ?>"><img class="u-max-full-width" src="<?php echo BASEURL; ?>/public/img/slmo.png" alt="logo"> Sri Lanka Maths Olympiad </a></li>
+                        <li><a id="logo" href="<?php echo BASEURL; ?>"><img class="u-max-full-width" src="<?php echo BASEURL; ?>/public/img/favicon.png" alt="logo">lighter </a></li>
 						<li><a href="<?php echo BASEURL; ?>/competitions/view"> Competitions </a></li>
 						<li><a href="<?php echo BASEURL; ?>/news/view"> News </a></li>
 						<li><a href="<?php echo BASEURL; ?>/gallery/view"> Gallery </a></li>

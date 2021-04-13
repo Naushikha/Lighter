@@ -65,6 +65,9 @@ nav ul li:not(:first-child) { display: none; }
 
 #logo {
     padding: 10px 16px;
+    color: #3c9ced;
+    font-family: Scada;
+    font-size: 1.5em;
 }
 
 #logo img {
@@ -126,9 +129,21 @@ nav ul li:not(:first-child) { display: none; }
     background-color: #eee;
 }
 
+#error{
+    font-size: 50px;
+    padding-top: 0;
+    color: #3c9ced;
+}
+
+#error-pic{
+    text-align: right;
+    padding-right: 10px;
+    vertical-align: middle;
+    width: 170px;
+}
+
 footer{
     width: 100%;
-
     background-color: #f5f5f5;
 }
 
@@ -317,8 +332,8 @@ footer #copyright{
     font-size: 4rem;
 }
 #modal-close:hover {
-    color: #1EAEDB;
+    color: #3C9CED;
     cursor: pointer;
   }
 
-  
+  /* #1EAEDB */
