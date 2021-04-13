@@ -1,0 +1,324 @@
+main {
+    min-height: calc(100vh - 60px);
+}
+body {
+    padding-top: 64px;
+}
+.nav-hide {
+    top: -60px;
+}
+.nav-show {
+	top: 0;
+}
+nav {
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+
+	background-color: white;
+	border-bottom: 1px solid #dcdcdc;
+	
+	transition: top 0.2s ease-in-out;
+}
+
+/* Fixes login and register jumping around problem when screen gets smaller */
+nav .container {
+    width: 95% !important;
+    margin: 0 auto;
+    padding: 0;
+}
+
+nav ul {
+    margin: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+	display: inline;
+	float: left;
+	position: relative;
+	margin: 0;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 16px 16px;
+
+    background-color: #fff;
+    color: #757575;
+	font-size: 1.7rem;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+nav ul li a:hover {	
+	background-color: #eee; 
+	color: #757575;
+}
+
+nav ul li:not(:first-child) { display: none; }
+#hambug {
+    float: right;
+    display: inline-block;
+}
+
+#logo {
+    padding: 10px 16px;
+}
+
+#logo img {
+    width: 50px;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+#sidenav {
+    position: fixed;
+    z-index: 100;
+    top: 56px;
+    right: 0;
+    height: 100%;
+    width: 0;
+
+    background-color: #fff;
+    border-left: 1px solid #dcdcdc;
+    box-shadow:  0 -5px 20px grey;
+
+    transition: 0.5s;
+}
+
+#sidenav .container {
+    /* left: 1px;
+    width: 100% !important; */
+    top: 10px;
+}
+
+#sidenav ul {
+    margin: 0;
+
+    list-style-type: none;
+}
+
+#sidenav ul li {
+    margin: 0;
+
+    transition: 0.2s;
+}
+
+#sidenav ul li a {
+    display: block;
+    margin: 0;
+    padding: 3px 2px;
+
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: #757575;
+}
+
+#sidenav ul ul li a {
+    font-size: 1.6rem;
+}
+
+
+#sidenav ul li:hover {
+    /* color: black; */
+    background-color: #eee;
+}
+
+footer{
+    width: 100%;
+
+    background-color: #f5f5f5;
+}
+
+footer .container {
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+footer a {
+    text-decoration: none;
+    color: #000;
+}
+
+footer img {
+    width: 60%;
+}
+
+footer div {
+    text-align: center;
+}
+
+footer #copyright{
+    bottom: 0;
+    /* position: absolute; */
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+  }
+
+/* For smaller screens the headers get messed up */
+@media (max-width: 450px) {
+    nav ul li a {
+        padding: 16px 8px;
+    }
+    #logo {
+        padding: 10px 8px;
+    }
+}
+
+
+/* When it is a desktop */
+@media (min-width: 1000px) {
+    #sidenav,
+    #hambug {
+        display: none;
+    }
+    
+    nav ul li:not(:first-child) { display: inline; }
+    
+    /* add caret for drop menu */
+    nav ul > li a:not(:only-child):after {
+        content: '\00a0▼';
+        font-size: 1.1rem;
+        vertical-align: middle;
+    }
+
+    /* sub menu */
+    nav ul ul {
+        position: absolute;
+        min-width: 180px;
+        
+        height: 0px;
+        overflow: hidden; /* hide sub menu */
+    }
+
+    nav ul li:hover ul {
+        height: auto;
+        overflow: visible; /* show sub menu */
+        
+        border: 1px solid #dcdcdc;
+    }
+
+    nav ul ul li {
+        display: list-item;
+        float: none;
+    }
+
+    nav ul ul li a {
+        display: block;
+    }
+
+    #footer-contact{
+        text-align: left;
+    }
+
+    footer img {
+        width: 100%;
+    }
+}
+
+
+.u-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#alert{
+    z-index: 100;
+    display: flex;
+    position: fixed;
+    top: 64px;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em;
+    border-radius: .5em;
+    background-color: #1EAEDB;
+    font-size: 1.7rem;
+    color: white;
+  }
+  #alert[data-type="green"]{
+    background-color: #5dd12c;
+  }
+  #alert[data-type="red"]{
+    background-color: #ff4a4a;
+  }
+  #alert-msg{
+    left: 50%;
+    margin-left: auto;
+    text-align: center;
+  }
+  #alert-close{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    /* margin-right: 1%;
+    margin-left: auto; */
+    /* float: right; */
+    /* margin-left: 15px; */
+    /* line-height: 20px; */
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  #alert-close:hover {
+    color: black;
+  }
+
+  #modal {
+    z-index: 1500;
+    position: fixed; 
+    top:0;
+    height:100vh;
+    width:100vw;
+    max-height: 100vh;
+
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  #modal-box {
+    position: fixed; 
+    top:50vh; 
+    left: 50vw;
+    max-height:90vh;
+    overflow: auto;
+
+    /* width: 80%; */
+    transform: translate(-50%, -50%); 
+    padding: 0 10px;
+    
+    background-color:white;
+    border: 1px solid black;
+    box-shadow: 0px 4px 8px #444;
+    border-radius: 5px;
+  }
+
+#modal-header {
+    z-index: 10;
+    position: sticky;
+    top: 0;
+
+    background-color: white;
+}
+
+#modal-title {
+    font-size: 2rem;
+    border-bottom: 1px solid black;
+}    
+#modal-close {
+    /* padding: 10px; */
+    height:0;
+    font-size: 4rem;
+}
+#modal-close:hover {
+    color: #1EAEDB;
+    cursor: pointer;
+  }
+
+  
