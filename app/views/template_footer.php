@@ -74,7 +74,7 @@
             </div>
         </div>
         <div id="copyright" class="row">
-            Copyright &copy;2020 <b>SLMOF</b>, All rights reserved. | Design by ÆSN>>38
+            Copyright &copy;2021 <b>Lighter Framework</b>, All rights reserved.
         </div>
         </footer>
     </body>
