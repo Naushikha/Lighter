@@ -1,7 +1,7 @@
 <?php
 
 // Inspired from - https://www.codeproject.com/Articles/1080626/Code-Your-Own-PHP-MVC-Framework-in-Hour
-class mvc
+class Lighter
 {
     public static function bootstrap()
     {
@@ -42,8 +42,8 @@ class mvc
 
         require DB_PATH.'MySQL.php';
 
-        // Load common framework functions
-        require CORE_PATH.'Functions.php';
+        // Load core framework helper functions
+        require_once HELPER_PATH.'coreFunctions.php';
 
         // Load proper configuration based on environment
         if (file_exists('demo.site')) {
@@ -77,7 +77,7 @@ class mvc
 
         $url[0] = $url[0].'Controller';
         if ('404Controller' == $url[0]) {
-            $url = ['Default_404Controller', 'view'];
+            $url = ['oops404Controller', 'view'];
         }
 
         $file = CONTROLLER_PATH.$url[0].'.php';
@@ -107,7 +107,7 @@ class mvc
                         try {
                             $controller->{$method}(...$args); //Splat operator for arg unpacking
                         } catch (Throwable $e) {
-                            logging('MVC', 'Controller threw an error: '.$e->getMessage());
+                            logging('Lighter Framework', 'Controller threw an error: '.$e->getMessage());
                             throw404();
                         }
                     } else { //Just call the method without args
@@ -120,7 +120,11 @@ class mvc
                 throw404();
             }
         } else { //No method called!
-            throw404();
+            if (method_exists($controller, '__view')) { // Maybe a default view exists?
+                $controller->__view();
+            } else { // Nothing that exists was called!
+                throw404();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
 <?php
-    require 'mvc/core/MVC.php';
-    mvc::bootstrap();
-?>
+
+    require 'mvc/core/Lighter.php';
+    Lighter::bootstrap();

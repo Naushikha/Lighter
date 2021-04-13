@@ -1,20 +1,6 @@
 <?php
 
-function alert($msg, $type = '')
-{
-    $_SESSION['alert_type'] = $type;
-    $_SESSION['alert_msg'] = $msg;
-}
-
-function throw404()
-{
-    header('Location: '.BASEURL.'/404'); //Redirect to 404
-}
-
-function redirect($url = '')
-{
-    header('Location: '.BASEURL.'/'.$url);
-}
+// TODO: Move these functions to helpers
 
 function loadFrag($page, $data = '')
 {
@@ -36,66 +22,6 @@ function getFragResult($page, $data = '')
 
         return $res;
     }
-}
-
-function mustBeLoggedIn($types = '')
-{
-    if (!isset($_SESSION['user'])) {
-        redirect();
-
-        exit;
-    }
-    if (!isset($_SESSION['user_type'])) {
-        alert('Finish setting up your account to gain access');
-        redirect('account/setup/select'); //Redirect if the user hasn't setup his role yet
-
-        exit;
-    }
-
-    // Replace spaces with nothing
-    $type_list = str_replace(' ', '', $types);
-    // Split string into array
-    $type_list = explode(',', $types);
-
-    if ('' != $types && !in_array($_SESSION['user_type'], $type_list)) { // Is it not the authorized user?
-        redirect();
-
-        exit;
-    }
-}
-
-function isUser($types = '')
-{
-    // Multi-purpose function, can be called without arguements to check if the request is by a user
-    if ('' == $types) {
-        if (isset($_SESSION['user'])) {
-            return true;
-        }
-
-        return false;
-    }
-
-    // Replace spaces with nothing
-    $types = str_replace(' ', '', $types);
-    // Split string into array
-    $types = explode(',', $types);
-    if (in_array($_SESSION['user_type'], $types)) {
-        return true;
-    }
-
-    return false;
-}
-
-function checkPrivilege($number, $type)
-{
-    // Type 1 - Add, 2 - Edit, 3 - Remove
-    $binaryString = sprintf('%03d', decbin($number));
-
-    if ('1' == $binaryString[$type - 1]) {
-        return true;
-    }
-
-    return false;
 }
 
 function uploadExists($name)
@@ -188,21 +114,4 @@ function getDaysUntil($date)
 function getAlphaNumeric($string)
 {
     return preg_replace('/[^a-zA-Z0-9\\s]/', '', $string);
-}
-
-function logging($type, $msg)
-{
-    // Following the standard log format
-    // https://en.wikipedia.org/wiki/Common_Log_Format
-    // Log user ID if user is logged in!
-    $logfile = fopen(FRAMEWORK_PATH.'logs'.DS.'logs.txt', 'a');
-    $user_ip = $_SERVER['REMOTE_ADDR'];
-    $datetime = date('Y/m/d h:i:sa');
-    $txt = "[!] {$datetime} - {$user_ip} - {$type} - {$msg}\n";
-    fwrite($logfile, $txt);
-    fclose($logfile);
-
-    // Add to database as well
-    $logging = new LoggingModel();
-    $logging->insert($type, $msg);
 }

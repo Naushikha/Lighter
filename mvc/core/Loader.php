@@ -9,10 +9,20 @@ class load
 
     public function helper($helper)
     {
-        include HELPER_PATH."{$helper}.php";
+        include_once HELPER_PATH."{$helper}.php";
     }
 
-    public function view($title, $page, $css = 'null', $data = '')
+    // Load a view, + can pass a data array to the page
+    public function view($page, $data = '')
+    {
+        if (file_exists(VIEW_PATH.$page.'.php')) {
+            require VIEW_PATH.$page.'.php';
+        }
+    }
+
+    // Load a view by the template (header + footer),
+    // + can set the page title, custom css for the page, and pass a data array
+    public function viewTemplate($title, $page, $css = 'null', $data = '')
     {
         if ('' == $title) {
             $title = APP_TITLE;
