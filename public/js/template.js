@@ -71,12 +71,22 @@ function showModal(modal, data = "", url = "") {
     type: "post",
     url: url,
     success: function (res) {
-      var res = JSON.parse(res);
-      if (res) {
-        $("#modal-title").html(res.title);
-        $("#modal-content").html(res.content);
-        $("#modal").fadeIn("fast");
+      try {
+        var res = JSON.parse(res);
+        var title = "";
+        var content = "";
+        if (res.title && res.content) {
+          title = res.title;
+          content = res.content;
+        }
+      } catch (error) {
+        console.error(error);
+        title = "Error";
+        content = "Server returned something that we could not understand.";
       }
+      $("#modal-title").html(title);
+      $("#modal-content").html(content);
+      $("#modal").fadeIn("fast");
     },
   });
 }
@@ -89,4 +99,35 @@ function hideModal() {
 // Useful for setting the size, e.g. dialog boxes should be smaller, others bigger
 function styleModal(property, value) {
   $("#modal-box").css(property, value);
+}
+
+// Start frag stuff ////////////////////////////////////////
+
+function showFrag(frag, containerID, data = "", url = "") {
+  containerID = "#" + containerID;
+  var tmpData = { getFrag: frag };
+  if (data != "") {
+    // If data has been passed
+    tmpData = { ...tmpData, ...data };
+  }
+  $.ajax({
+    data: tmpData,
+    type: "post",
+    url: url,
+    success: function (res) {
+      try {
+        var res = JSON.parse(res);
+        var content = "";
+        if (res.content) {
+          content = res.content;
+        }
+      } catch (error) {
+        console.error(error);
+        content =
+          "<h1> Error </h1> \
+          <p> Server returned something that we could not understand. </p>";
+      }
+      $(containerID).html(content);
+    },
+  });
 }

@@ -4,17 +4,26 @@ class homeController extends Controller
 {
     public function __view()
     {
-        // $this->load->library('modal');
-        // Check for modal requests
-        if (isset($_POST['getModal'])) {
-            $this->load->viewModal('Delete Shit', 'delete');
+        $this->checkModalRequests();
+        $this->checkFragRequests();
+        $this->checkResponses();
 
-            exit;
-        }
         $this->load->viewTemplate('', 'home', 'home');
     }
 
-    private function checkModalRequests()
+    protected function __view_modal_delete()
     {
+        $this->load->viewModal('Delete Shit', 'delete');
+    }
+
+    protected function __view_frag_yeshome()
+    {
+        $this->load->viewFrag('home');
+    }
+
+    protected function __view_resp_sample()
+    {
+        alert('You sent the message: '.$_POST['msg']);
+        redirect();
     }
 }

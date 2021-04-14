@@ -10,6 +10,7 @@ class testController extends Controller
 
     public function view()
     {
+        $this->checkModalRequests();
         echo 'You reached the test controller view method!';
     }
 }
