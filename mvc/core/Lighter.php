@@ -20,7 +20,7 @@ class Lighter
         define('PUBLIC_PATH', ROOT.'public'.DS);
 
         // Application path constants
-        define('CONFIG_PATH', APP_PATH.'config'.DS);
+        define('CONFIG_PATH', APP_PATH.'configs'.DS);
         define('CONTROLLER_PATH', APP_PATH.'controllers'.DS);
         define('MODEL_PATH', APP_PATH.'models'.DS);
         define('VIEW_PATH', APP_PATH.'views'.DS);
@@ -45,12 +45,12 @@ class Lighter
         // Load core framework helper functions
         require_once HELPER_PATH.'coreFunctions.php';
 
-        // Load proper configuration based on environment
-        if (file_exists('demo.site')) {
-            require CONFIG_PATH.'LiveConfig.php';
-        } else {
-            require CONFIG_PATH.'Config.php';
+        // Setup configurations
+        if (file_exists(CONFIG_PATH.'prod.env')) { // Rename file 'not.prod.env' > 'prod.env' in production environment
+            // If this file exists, Lighter will attempt to load 'production' configurations
+            define('LIGHTER_PROD_ENV', 1); // Production environment!
         }
+        loadConfig('lighter');
 
         // Start the session
         session_start();
