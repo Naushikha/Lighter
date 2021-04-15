@@ -140,7 +140,7 @@ class MySQL
     public function error($error)
     {
         if ($this->show_errors) {
-            logging('MySQL', $error);
+            lighterLogging('MySQL', $error);
 
             exit($error);
         }

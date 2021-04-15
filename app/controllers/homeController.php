@@ -23,7 +23,7 @@ class homeController extends Controller
 
     protected function __view_resp_sample()
     {
-        alert('You sent the message: '.$_POST['msg']);
-        redirect();
+        lighterAlert('You sent the message: '.$_POST['msg']);
+        lighterRedirect();
     }
 }

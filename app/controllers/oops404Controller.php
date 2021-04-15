@@ -6,7 +6,7 @@ class oops404Controller extends Controller
     {
         http_response_code(404);
         $this->load->viewTemplate('Oops!', 'template_404');
-        // logging('404', 'Accessed an unavailable resource.');
+        // lighterLogging('404', 'Accessed an unavailable resource.');
 
         exit();
     }

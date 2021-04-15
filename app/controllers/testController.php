@@ -4,7 +4,7 @@ class testController extends Controller
 {
     public function __view()
     {
-        alert('This is a message');
+        lighterAlert('This is a message');
         $this->load->viewTemplate('Test', 'home');
     }
 

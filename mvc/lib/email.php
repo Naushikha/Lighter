@@ -23,7 +23,7 @@ class email
 
     public function __construct()
     {
-        loadConfig('email');
+        lighterLoadConfig('email');
         $this->emailHost = EMAIL_HOST;
         $this->emailPort = EMAIL_PORT;
 

@@ -1,6 +1,6 @@
 <?php
 
-function logging($type, $msg)
+function lighterLogging($type, $msg)
 {
     // Following the standard log format
     // https://en.wikipedia.org/wiki/Common_Log_Format
@@ -17,17 +17,17 @@ function logging($type, $msg)
     // $logging->insert($type, $msg);
 }
 
-function throw404()
+function lighterThrow404()
 {
     header('Location: '.BASEURL.'/404'); //Redirect to 404
 }
 
-function redirect($url = '')
+function lighterRedirect($url = '')
 {
     header('Location: '.BASEURL.'/'.$url);
 }
 
-function loadConfig($filename)
+function lighterLoadConfig($filename)
 {
     $prodConfigFile = CONFIG_PATH.'prod_config_'.$filename.'.php';
     $configFile = CONFIG_PATH.'config_'.$filename.'.php';
@@ -43,14 +43,14 @@ function loadConfig($filename)
     if (file_exists($configFile)) {
         require $configFile;
     } else {
-        logging('Lighter Framework', "Configuration file '{$filename}' not found, execution aborted.");
+        lighterLogging('Lighter Framework', "Configuration file '{$filename}' not found, execution aborted.");
 
         exit;
     }
 }
 
 // Show a Lighter alert on next template load
-function alert($msg, $type = '')
+function lighterAlert($msg, $type = '')
 {
     $_SESSION['alert_type'] = $type;
     $_SESSION['alert_msg'] = $msg;
