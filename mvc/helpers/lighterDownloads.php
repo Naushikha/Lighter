@@ -1,6 +1,6 @@
 <?php
 
-function downloadExists($name)
+function lighterDownloadExists($name)
 {
     if (file_exists(DOWNLOAD_PATH.$name)) {
         return true;
@@ -10,7 +10,7 @@ function downloadExists($name)
 }
 
 // Cleans downloads that are older than specified days
-function cleanDownloads()
+function lighterCleanDownloads()
 {
     $days = 2; // Modify according to need
     $fileSystemIterator = new FilesystemIterator(DOWNLOAD_PATH);
@@ -25,13 +25,13 @@ function cleanDownloads()
     }
 }
 
-function storeDownload($extension)
+function lighterStoreDownload($extension)
 {
-    cleanDownloads();
+    lighterCleanDownloads();
     $random_hash = md5(uniqid(rand(), true));
     $file_name = $random_hash.'.'.$extension;
     // By rare chance if the file names are similar, generate a new name
-    while (downloadExists($file_name)) {
+    while (lighterDownloadExists($file_name)) {
         $random_hash = md5(uniqid(rand(), true));
         $file_name = $random_hash.'.'.$extension;
     }

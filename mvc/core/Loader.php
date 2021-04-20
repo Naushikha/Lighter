@@ -75,7 +75,9 @@ class load
             $res = ob_get_contents();
             ob_end_clean();
 
-            return $res;
+            echo json_encode([
+                'content' => $res,
+            ]);
         }
     }
 }

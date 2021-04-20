@@ -1,6 +1,6 @@
 <?php
 
-function uploadExists($name)
+function lighterUploadExists($name)
 {
     if (file_exists(UPLOAD_PATH.$name)) {
         return true;
@@ -9,7 +9,7 @@ function uploadExists($name)
     return false;
 }
 
-function tempUploadExists($post_name)
+function lighterTempUploadExists($post_name)
 {
     if (isset($_FILES[$post_name])) {
         // If a file is temporarily uploaded it should have a temp name
@@ -19,15 +19,17 @@ function tempUploadExists($post_name)
 
         return true;
     }
+
+    return false;
 }
 
-function storeUpload($form_field_name)
+function lighterStoreUpload($form_field_name)
 {
     $extension = pathinfo($_FILES[$form_field_name]['name'], PATHINFO_EXTENSION);
     $random_hash = md5(uniqid(rand(), true));
     $file_name = $random_hash.'.'.$extension;
     // By rare chance if the file names are similar, generate a new name
-    while (uploadExists($file_name)) {
+    while (lighterUploadExists($file_name)) {
         $random_hash = md5(uniqid(rand(), true));
         $file_name = $random_hash.'.'.$extension;
     }
@@ -36,7 +38,7 @@ function storeUpload($form_field_name)
     return $file_name;
 }
 
-function removeUpload($name)
+function lighterRemoveUpload($name)
 {
     if (file_exists(UPLOAD_PATH.$name)) {
         unlink(UPLOAD_PATH.$name);

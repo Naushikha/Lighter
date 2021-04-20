@@ -20,7 +20,7 @@ class Lighter
         define('PUBLIC_PATH', ROOT.'public'.DS);
 
         // Application path constants
-        define('CONFIG_PATH', APP_PATH.'config'.DS);
+        define('CONFIG_PATH', APP_PATH.'configs'.DS);
         define('CONTROLLER_PATH', APP_PATH.'controllers'.DS);
         define('MODEL_PATH', APP_PATH.'models'.DS);
         define('VIEW_PATH', APP_PATH.'views'.DS);
@@ -43,14 +43,14 @@ class Lighter
         require DB_PATH.'MySQL.php';
 
         // Load core framework helper functions
-        require_once HELPER_PATH.'coreFunctions.php';
+        require_once HELPER_PATH.'lighterCore.php';
 
-        // Load proper configuration based on environment
-        if (file_exists('demo.site')) {
-            require CONFIG_PATH.'LiveConfig.php';
-        } else {
-            require CONFIG_PATH.'Config.php';
+        // Setup configurations
+        if (file_exists(CONFIG_PATH.'prod.env')) { // Rename file 'not.prod.env' > 'prod.env' in production environment
+            // If this file exists, Lighter will attempt to load 'production' configurations
+            define('LIGHTER_PROD_ENV', 1); // Production environment!
         }
+        lighterLoadConfig('lighter');
 
         // Start the session
         session_start();
@@ -85,7 +85,7 @@ class Lighter
         if (file_exists($file)) {
             $controller = new $url[0]();
         } else {
-            throw404();
+            lighterThrow404();
         }
 
         if (isset($url[1])) { //Check for method in url
@@ -107,23 +107,23 @@ class Lighter
                         try {
                             $controller->{$method}(...$args); //Splat operator for arg unpacking
                         } catch (Throwable $e) {
-                            logging('Lighter Framework', 'Controller threw an error: '.$e->getMessage());
-                            throw404();
+                            lighterLogging('Lighter Framework', 'Controller threw an error: '.$e->getMessage());
+                            lighterThrow404();
                         }
                     } else { //Just call the method without args
                         $controller->{$method}();
                     }
                 } else { //The method call does not have sufficient parameters!
-                    throw404();
+                    lighterThrow404();
                 }
             } else { //Method does not exist!
-                throw404();
+                lighterThrow404();
             }
         } else { //No method called!
             if (method_exists($controller, '__view')) { // Maybe a default view exists?
                 $controller->__view();
             } else { // Nothing that exists was called!
-                throw404();
+                lighterThrow404();
             }
         }
     }

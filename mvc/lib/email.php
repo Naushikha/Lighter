@@ -1,6 +1,7 @@
 <?php
 
-// This library is built on top of PHPMailer
+// This is an example for a library that you can use in Lighter
+// Built on top of PHPMailer
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -13,15 +14,22 @@ require LIB_PATH.'PHPMailer'.DS.'SMTP.php';
 
 class email
 {
-    private $emailHost = EMAIL_HOST;
-    private $emailPort = EMAIL_PORT;
+    private $emailHost;
+    private $emailPort;
 
-    private $senderName = EMAIL_SENDER;
-    private $username = EMAIL_USERNAME;
-    private $password = EMAIL_PASSWORD;
+    private $senderName;
+    private $username;
+    private $password;
 
     public function __construct()
     {
+        lighterLoadConfig('email');
+        $this->emailHost = EMAIL_HOST;
+        $this->emailPort = EMAIL_PORT;
+
+        $this->senderName = EMAIL_SENDER;
+        $this->username = EMAIL_USERNAME;
+        $this->password = EMAIL_PASSWORD;
         $this->mail = new PHPMailer(true);
     }
 
