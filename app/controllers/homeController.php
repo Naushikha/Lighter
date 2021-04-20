@@ -23,6 +23,7 @@ class homeController extends Controller
 
     protected function __view_resp_sample()
     {
+        $this->load->library('lighterTemplate');
         lighterAlert('You sent the message: '.$_POST['msg']);
         lighterRedirect();
     }
