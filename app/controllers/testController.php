@@ -4,16 +4,15 @@ class testController extends Controller
 {
     public function __view()
     {
-        $this->load->helper('lighterTemplate');
-        lighterAlert('You sent the message: ');
-        lighterAlert('You sent the message: You sent the message: You sent the message: ', 'red');
-        lighterAlert('You sent the message: You sent the message: You sent the message: You sent the message: You sent the message: You sent the message: You sent the message: You sent the message: ', 'green');
-        $this->load->viewTemplate('Test', 'home');
+        $this->Talert('You sent the message: ');
+        $this->Talert('You sent the message: You sent the message: You sent the message: ', 'red');
+        $this->Talert('You sent the message: You sent the message: You sent the message: You sent the message: You sent the message: You sent the message: You sent the message: You sent the message: ', 'green');
+        $this->Tview('Test', 'home');
     }
 
     public function view()
     {
-        $this->checkModalRequests();
+        $this->TcheckModals();
         echo 'You reached the test controller view method!';
     }
 }

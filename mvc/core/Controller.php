@@ -9,7 +9,110 @@ class Controller
         $this->load = new load();
     }
 
-    protected function checkModalRequests()
+    ///////////////////////////////////////////////////////////////////////////////////////
+    // Lighter template support: Gives ability to call modals, frags, responses & alerts
+
+    // Load a view by the template (header + footer),
+    // + can set the page title, custom css for the page, and pass a data array
+    protected function Tview($title, $page, $css = '', $data = '')
+    {
+        if ('' == $title) {
+            $title = APP_TITLE;
+        } else {
+            $title = $title.': '.APP_TITLE;
+        }
+        define('PAGE_TITLE', $title);
+
+        if ('' != $css) { // Include only if defined
+            $css = $css.'.css';
+            $cssPath = PUBLIC_PATH.'css'.DS.$css;
+            if (file_exists($cssPath)) { //If the custom CSS exists, define it.
+                define('CUSTOM_CSS', $css);
+            } else {
+                lighterLogging('Lighter Framework', "CSS not found: {$css}");
+            }
+        }
+
+        // Template file paths
+        $headerPath = VIEW_PATH.'template_header.php';
+        $footerPath = VIEW_PATH.'template_footer.php';
+        // Target view path
+        $pagePath = VIEW_PATH.$page.'.php';
+
+        if (file_exists($headerPath)) {
+            require $headerPath;
+        } else {
+            lighterLogging('Lighter Framework', 'Template header not found', true);
+        }
+
+        if (file_exists($pagePath)) {
+            require $pagePath;
+        } else {
+            lighterLogging('Lighter Framework', 'Template target view not found', true);
+        }
+
+        if (file_exists($footerPath)) {
+            require $footerPath;
+        } else {
+            lighterLogging('Lighter Framework', 'Template footer not found', true);
+        }
+    }
+
+    // Show a Lighter alert on next template load
+    protected function Talert($msg, $type = '')
+    {
+        if (!isset($_SESSION['LIGHTER_ALERTS'])) {
+            $_SESSION['LIGHTER_ALERTS'] = [];
+        }
+        $alert = [
+            'type' => $type,
+            'msg' => $msg,
+        ];
+        array_push($_SESSION['LIGHTER_ALERTS'], $alert);
+    }
+
+    // View a Lighter modal
+    protected function Tmodal($title, $modal, $data = '')
+    {
+        $modal = 'modal_'.$modal;
+        $modalPath = VIEW_PATH.$modal.'.php';
+        if (file_exists($modalPath)) {
+            ob_start();
+
+            include $modalPath;
+            $res = ob_get_contents();
+            ob_end_clean();
+
+            echo json_encode([
+                'title' => $title,
+                'content' => $res,
+            ]);
+        } else {
+            lighterLogging('Lighter Framework', "Modal not found: {$modal}", true);
+        }
+    }
+
+    // View a Lighter fragment(frag)
+    protected function Tfrag($frag, $data = '')
+    {
+        $frag = 'frag_'.$frag;
+        $fragPath = VIEW_PATH.$frag.'.php';
+        if (file_exists($fragPath)) {
+            ob_start();
+
+            include $fragPath;
+            $res = ob_get_contents();
+            ob_end_clean();
+
+            echo json_encode([
+                'content' => $res,
+            ]);
+        } else {
+            lighterLogging('Lighter Framework', "Fragment not found: {$frag}", true);
+        }
+    }
+
+    protected function TcheckModals()
     {
         // Modal request functions should be of the form "protected callingFunction_modal_modalRequestID()"
         if (isset($_POST['getModal'])) {
@@ -25,7 +128,7 @@ class Controller
         }
     }
 
-    protected function checkFragRequests()
+    protected function TcheckFrags()
     {
         // Frag request functions should be of the form "protected callingFunction_frag_fragRequestID()"
         if (isset($_POST['getFrag'])) {
@@ -41,7 +144,7 @@ class Controller
         }
     }
 
-    protected function checkResponses()
+    protected function TcheckResponses()
     {
         // Response request functions should be of the form "protected callingFunction_resp_responseRequestID()"
         if (isset($_POST['sendResponse'])) {

@@ -1,10 +1,8 @@
 #Turn the rewrite engine on
 RewriteEngine On
 
-#Unless it's an actual directory, file or a link
-RewriteCond %{REQUEST_FILENAME} !-d
+#Unless it's an actual file
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-l
 
 #Rewrite the entire url as a URL parameter to the index.php
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
