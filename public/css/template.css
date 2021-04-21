@@ -129,15 +129,15 @@ nav ul li:not(:first-child) {
 
 #error {
     font-size: 50px;
-    padding-top: 0;
-    color: #3c9ced;
+    color: #3C9CED;
 }
 
 #error-pic {
     text-align: right;
-    padding-right: 10px;
+    padding: 10px;
+    margin: 0.5em 0;
     vertical-align: middle;
-    width: 170px;
+    width: 150px;
 }
 
 footer {
@@ -271,13 +271,13 @@ footer #copyright {
   border-radius: 20px;
   font-size: 1.7rem;
   color: white;
-  background-color: #1eaedb;
+  background-color: #3C9CED;
 }
 #alert.green {
-  background-color: #5dd12c;
+  background-color: #1AD669;
 }
 #alert.red {
-  background-color: #ff4a4a;
+  background-color: #F10505;
 }
 #alert-msg {
 
@@ -343,7 +343,7 @@ footer #copyright {
   font-size: 4rem;
 }
 #modal-close:hover {
-  color: #1EAEDB;
+  color: #3C9CED;
   cursor: pointer;
 }
 

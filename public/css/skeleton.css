@@ -315,9 +315,10 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #fff;
-  background-color: #33c3f0;
-  border-color: #33c3f0;
+  background-color:#3C9CED; 
+  border-color: #3C9CED;
 }
+/* #33c3f0 */
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -329,9 +330,10 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #fff;
-  background-color: #1eaedb;
-  border-color: #1eaedb;
+  background-color: #188AEA;
+  border-color: #188AEA;
 }
+/* 1eaedb */
 
 .button.button-red,
 button.button-red,
@@ -339,9 +341,13 @@ input[type="submit"].button-red,
 input[type="reset"].button-red,
 input[type="button"].button-red {
   color: #fff;
-  background-color: #ff3838;
-  border-color: #ff3838;
+  background-color: #F10505;
+  border-color: #F10505;
 }
+
+/* #ff3838 
+#e83333*/
+
 .button.button-red:hover,
 button.button-red:hover,
 input[type="submit"].button-red:hover,
@@ -353,8 +359,8 @@ input[type="submit"].button-red:focus,
 input[type="reset"].button-red:focus,
 input[type="button"].button-red:focus {
   color: #fff;
-  background-color: #e83333;
-  border-color: #e83333;
+  background-color: #e20b0b;
+  border-color: #e20b0b;
 }
 
 .button.button-green,
@@ -363,10 +369,14 @@ input[type="submit"].button-green,
 input[type="reset"].button-green,
 input[type="button"].button-green {
   color: #fff;
-  background-color: #62e32b;
-  border-color: #62e32b;
+  background-color: #1CCF67;
+  border-color: #1CCF67;
   margin-left: 0.8rem;
 }
+
+/* 62e32b 
+55c227*/
+
 .button.button-green:hover,
 button.button-green:hover,
 input[type="submit"].button-green:hover,
@@ -378,8 +388,8 @@ input[type="submit"].button-green:focus,
 input[type="reset"].button-green:focus,
 input[type="button"].button-green:focus {
   color: #fff;
-  background-color: #55c227;
-  border-color: #55c227;
+  background-color: #1bc461;
+  border-color: #1bc461;
   margin-left: 0.8rem;
 }
 

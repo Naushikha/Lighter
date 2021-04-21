@@ -19,7 +19,7 @@
         <div class="container" id="footer-container">
             <div class="row">
                 <div class="four columns">
-                    <a id="logo" href="<?php echo BASEURL; ?>"><img class="u-max-full-width" src="<?php echo BASEURL; ?>/public/img/favicon.png" alt="logo">lighter framework</a>
+                    <a id="logo" href="<?php echo BASEURL; ?>"><img class="u-max-full-width" src="<?php echo BASEURL; ?>/public/img/favicon.svg" alt="logo">lighter framework</a>
                     <br>
                     <p id="desc"><b>"It's a lighter-ning fast framework!"</b></p>
                 </div>

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title><?php echo PAGE_TITLE; ?></title>
-	<link rel="icon" type="image/png" href="<?php echo BASEURL; ?>/public/img/favicon.png" />
+	<link rel="icon" type="image/png" href="<?php echo BASEURL; ?>/public/img/favicon.svg" />
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>/public/css/normalize.css">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>/public/css/skeleton.css">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>/public/css/template.css">
@@ -19,7 +19,7 @@
 		<nav class="nav-show">
 			<div class="container">
 				<ul>
-					<li><a id="logo" href="<?php echo BASEURL; ?>"><img class="u-max-full-width" src="<?php echo BASEURL; ?>/public/img/favicon.png" alt="logo">lighter </a></li>
+					<li><a id="logo" href="<?php echo BASEURL; ?>"><img class="u-max-full-width" src="<?php echo BASEURL; ?>/public/img/favicon.svg" alt="logo">lighter </a></li>
 					<li><a href="<?php echo BASEURL; ?>/competitions/view"> Competitions </a></li>
 					<li><a href="<?php echo BASEURL; ?>/news/view"> News </a></li>
 					<li><a href="<?php echo BASEURL; ?>/gallery/view"> Gallery </a></li>
