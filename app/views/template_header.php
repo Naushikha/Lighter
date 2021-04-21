@@ -20,24 +20,15 @@
 			<div class="container">
 				<ul>
 					<li><a id="logo" href="<?php echo BASEURL; ?>"><img class="u-max-full-width" src="<?php echo BASEURL; ?>/public/img/favicon.svg" alt="logo">lighter </a></li>
-					<li><a href="<?php echo BASEURL; ?>/competitions/view"> Competitions </a></li>
-					<li><a href="<?php echo BASEURL; ?>/news/view"> News </a></li>
-					<li><a href="<?php echo BASEURL; ?>/gallery/view"> Gallery </a></li>
+					<li><a href="<?php echo BASEURL; ?>/menu-item-1/view"> Menu Item 1 </a></li>
+					<li><a href="<?php echo BASEURL; ?>/menu-item-2/view"> Menu Item 2 </a></li>
+					<li><a href="<?php echo BASEURL; ?>/menu-item-3/view"> Menu Item 3 </a></li>
 					<li>
-						<a href="#"> Learn </a>
+						<a href="#"> Menu Item 4 </a>
 						<ul>
-							<li><a href="<?php echo BASEURL; ?>/forum/view"> Forum </a></li>
-							<li><a href="<?php echo BASEURL; ?>/quizzes/view"> Quizzes </a></li>
-							<li><a href="<?php echo BASEURL; ?>/learn/resources"> Resources </a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#"> About </a>
-						<ul>
-							<li><a href="<?php echo BASEURL; ?>/about/foundation"> Foundation </a></li>
-							<li><a href="<?php echo BASEURL; ?>/about/staff"> Staff </a></li>
-							<li><a href="<?php echo BASEURL; ?>/about/science"> Science & CT </a></li>
-							<li><a href="<?php echo BASEURL; ?>/about/contact"> Contact </a></li>
+							<li><a href="<?php echo BASEURL; ?>/list-item-1/view"> List Item 1 </a></li>
+							<li><a href="<?php echo BASEURL; ?>/list-item-2/view"> List Item 2 </a></li>
+							<li><a href="<?php echo BASEURL; ?>/list-item-3/view"> List Item 3 </a></li>
 						</ul>
 					</li>
 
@@ -80,22 +71,16 @@
 						<li><a href="<?php echo BASEURL; ?>/account/register"> Register </a></li>
 					<?php } ?>
 
-					<li><a href="<?php echo BASEURL; ?>/competitions/view"> Competitions </a></li>
-					<li><a href="<?php echo BASEURL; ?>/news/view"> News </a></li>
-					<li><a href="<?php echo BASEURL; ?>/gallery/view"> Gallery </a></li>
-					<li><a href="#"> Learn </a></li>
+                    <li><a href="<?php echo BASEURL; ?>/menu-item-1/view"> Menu Item 1 </a></li>
+					<li><a href="<?php echo BASEURL; ?>/menu-item-2/view"> Menu Item 2 </a></li>
+					<li><a href="<?php echo BASEURL; ?>/menu-item-3/view"> Menu Item 3 </a></li>
+					<li><a href="#"> Menu Item 4 </a></li>
 					<ul>
-						<li><a href="<?php echo BASEURL; ?>/forum/view"> - Forum </a></li>
-						<li><a href="<?php echo BASEURL; ?>/quizzes/view"> - Quizzes </a></li>
-						<li><a href="<?php echo BASEURL; ?>/learn/resources"> - Resources </a></li>
+						<li><a href="<?php echo BASEURL; ?>/list-item-1/view"> - List Item 1 </a></li>
+						<li><a href="<?php echo BASEURL; ?>/list-item-2/view"> - List Item 2 </a></li>
+                        <li><a href="<?php echo BASEURL; ?>/list-item-3/view"> - List Item 3 </a></li>
 					</ul>
-					<li><a href="#"> About </a></li>
-					<ul>
-						<li><a href="<?php echo BASEURL; ?>/about/foundation"> - Foundation </a></li>
-						<li><a href="<?php echo BASEURL; ?>/about/staff"> - Staff </a></li>
-						<li><a href="<?php echo BASEURL; ?>/about/science"> - Science &amp; CT </a></li>
-					</ul>
-					<li><a href="<?php echo BASEURL; ?>/about/contact"> Contact Us </a></li>
+					
 				</ul>
 			</div>
 		</div>

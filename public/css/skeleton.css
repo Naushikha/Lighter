@@ -192,6 +192,20 @@ body {
   color: #222;
 }
 
+:root{
+    --blue: #3C9CED;
+    --blue-hover: #188AEA;
+    --blue-bg: rgba(60, 156, 237,0.1);
+
+    --green: #28a745;
+    --green-hover: #1bc461;
+    --green-bg: rgba(40, 167, 69,0.1);
+
+    --red: #da2f40;
+    --red-hover: #ee1717;
+    --red-bg: rgba(209, 45, 62,0.1);
+}
+
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1,
@@ -264,10 +278,10 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1eaedb;
+  color: var(--blue);
 }
 a:hover {
-  color: #0fa0ce;
+  color: var(--blue-hover);
 }
 
 /* Buttons
@@ -315,8 +329,8 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #fff;
-  background-color:#3C9CED; 
-  border-color: #3C9CED;
+  background-color: var(--blue); 
+  border-color: var(--blue);
 }
 /* #33c3f0 */
 .button.button-primary:hover,
@@ -330,10 +344,9 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #fff;
-  background-color: #188AEA;
-  border-color: #188AEA;
+  background-color: var(--blue-hover);
+  border-color: var(--blue-hover);
 }
-/* 1eaedb */
 
 .button.button-red,
 button.button-red,
@@ -341,12 +354,9 @@ input[type="submit"].button-red,
 input[type="reset"].button-red,
 input[type="button"].button-red {
   color: #fff;
-  background-color: #F10505;
-  border-color: #F10505;
+  background-color: var(--red);
+  border-color: var(--red);
 }
-
-/* #ff3838 
-#e83333*/
 
 .button.button-red:hover,
 button.button-red:hover,
@@ -359,8 +369,8 @@ input[type="submit"].button-red:focus,
 input[type="reset"].button-red:focus,
 input[type="button"].button-red:focus {
   color: #fff;
-  background-color: #e20b0b;
-  border-color: #e20b0b;
+  background-color: var(--red-hover);
+  border-color: var(--red-hover);
 }
 
 .button.button-green,
@@ -369,13 +379,9 @@ input[type="submit"].button-green,
 input[type="reset"].button-green,
 input[type="button"].button-green {
   color: #fff;
-  background-color: #1CCF67;
-  border-color: #1CCF67;
-  margin-left: 0.8rem;
+  background-color: var(--green);
+  border-color: var(--green);
 }
-
-/* 62e32b 
-55c227*/
 
 .button.button-green:hover,
 button.button-green:hover,
@@ -388,9 +394,8 @@ input[type="submit"].button-green:focus,
 input[type="reset"].button-green:focus,
 input[type="button"].button-green:focus {
   color: #fff;
-  background-color: #1bc461;
-  border-color: #1bc461;
-  margin-left: 0.8rem;
+  background-color: var(--green-hover);
+  border-color: var(--green-hover);
 }
 
 /* Forms
@@ -445,7 +450,7 @@ input[type="date"]:focus, /* Added support for date input */
 input[type="time"], /* Added support for time input */
 textarea:focus,
 select:focus {
-  border: 1px solid #33c3f0;
+  border: 1px solid var(--blue);
   outline: 0;
 }
 label,

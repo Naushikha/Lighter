@@ -66,7 +66,7 @@ nav ul li:not(:first-child) {
 
 #logo {
   padding: 10px 16px;
-  color: #3c9ced;
+  color: var(--blue);
   font-family: Scada;
   font-size: 1.5em;
 }
@@ -93,8 +93,6 @@ nav ul li:not(:first-child) {
 }
 
 #sidenav .container {
-  /* left: 1px;
-    width: 100% !important; */
   top: 10px;
 }
 
@@ -123,13 +121,13 @@ nav ul li:not(:first-child) {
 }
 
 #sidenav ul li:hover {
-    /* color: black; */
+    color: black;
     background-color: #eee;
 }
 
 #error {
     font-size: 50px;
-    color: #3C9CED;
+    color: var(--blue);
 }
 
 #error-pic {
@@ -194,7 +192,6 @@ footer #copyright {
         position: relative;
         margin-bottom: 1em;
     }
-    
 }
 
 /* When it is a desktop */
@@ -239,55 +236,51 @@ footer #copyright {
     nav ul ul li a {
         display: block;
     }
-
-    /* #footer-contact {
-        text-align: left;
-    }
-
-    footer img {
-        width: 100%;
-    } */
-
 }
 
 .u-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Styling for alerts */
 .alert {
-  z-index: 100;
-  margin: 5px 0;
-  left: 50%;
-  transform: translateX(-50%);
-  min-height: 70px;
-  width: 50%;
+    z-index: 100;
+    margin: 5px 0;
+    left: 50%;
+    transform: translateX(-50%);
+    min-height: 70px;
+    width: 50%;
 
-
-  border-radius: 20px;
-  font-size: 1.7rem;
-  background-color: #3C9CED;
+    border-radius: 12px;
+    font-size: 1.7rem;
+    background-color: rgba(60, 156, 237,0.1);
+    border: 1px solid var(--blue);
+    border-color: var(--blue);
+    color: var(--blue);
 }
 .alert.green {
-  background-color: #1AD669;
+    background-color: var(--green-bg);
+    border: 1px solid var(--green);
+    border-color: var(--green);
+    color: var(--green);
 }
 .alert.red {
-  background-color: #F10505;
+    background-color: var(--red-bg);
+    border: 1px solid var(--red);
+    border-color: var(--red);
+    color: var(--red);
 }
 .alert-msg {
-  padding: 1em 0;
-  text-align: center;
+    padding: 1em 0;
+    text-align: center;
   
-  color: #fff;
 }
 .alert-close {
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 3rem;
   font-weight: bold;
-  color: white;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -338,12 +331,11 @@ footer #copyright {
   border-bottom: 1px solid black;
 }
 #modal-close {
-  /* padding: 10px; */
   height: 0;
   font-size: 4rem;
 }
 #modal-close:hover {
-  color: #3C9CED;
+  color: var(--blue);
   cursor: pointer;
 }
 
