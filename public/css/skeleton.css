@@ -195,15 +195,15 @@ body {
 :root{
     --blue: #3C9CED;
     --blue-hover: #188AEA;
-    --blue-bg: rgba(60, 156, 237,0.1);
+    --blue-bg: rgba(60, 156, 237, 0.07);
 
-    --green: #28a745;
-    --green-hover: #1bc461;
-    --green-bg: rgba(40, 167, 69,0.1);
+    --green: #1bc461;
+    --green-hover: #28a745;
+    --green-bg: rgba(40, 167, 69, 0.07);
 
-    --red: #da2f40;
-    --red-hover: #ee1717;
-    --red-bg: rgba(209, 45, 62,0.1);
+    --red: #E11616;
+    --red-hover: #CE3040;
+    --red-bg: rgba(209, 45, 62, 0.07);
 }
 
 /* Typography
