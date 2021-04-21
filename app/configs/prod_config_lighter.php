@@ -2,6 +2,8 @@
 
 //Change system-wide configurations here for the production environment.
 
+define('DEBUG_MSGS', false); // Disable for production
+
 define('APP_TITLE', 'Lighter Framework'); // Shown at the browser title bar
 
 define('BASEURL', 'http://lighter.fw'); //Define without trailing '/'

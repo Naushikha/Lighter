@@ -2,6 +2,8 @@
 
 //Change system-wide configurations here.
 
+define('DEBUG_MSGS', true); // Enable for development
+
 define('APP_TITLE', 'Lighter Framework'); // Shown at the browser title bar
 
 define('BASEURL', 'http://localhost/lighter-framework'); //Define without trailing '/'

@@ -4,25 +4,38 @@ class load
 {
     public function library($lib)
     {
-        include_once LIB_PATH."{$lib}.php";
+        $libraryPath = LIB_PATH."{$lib}.php";
+        if (file_exists($libraryPath)) {
+            include_once $libraryPath;
+        } else {
+            lighterLogging('Lighter Framework', "Library not found: {$lib}", true);
+        }
     }
 
     public function helper($helper)
     {
-        include_once HELPER_PATH."{$helper}.php";
+        $helperPath = HELPER_PATH."{$helper}.php";
+        if (file_exists($helperPath)) {
+            include_once $helperPath;
+        } else {
+            lighterLogging('Lighter Framework', "Helper not found: {$helper}", true);
+        }
     }
 
     // Load a view, + can pass a data array to the page
     public function view($page, $data = '')
     {
-        if (file_exists(VIEW_PATH.$page.'.php')) {
-            require VIEW_PATH.$page.'.php';
+        $pagePath = VIEW_PATH.$page.'.php';
+        if (file_exists($pagePath)) {
+            require $pagePath;
+        } else {
+            lighterLogging('Lighter Framework', "View not found: {$page}", true);
         }
     }
 
     // Load a view by the template (header + footer),
     // + can set the page title, custom css for the page, and pass a data array
-    public function viewTemplate($title, $page, $css = 'null', $data = '')
+    public function viewTemplate($title, $page, $css = '', $data = '')
     {
         if ('' == $title) {
             $title = APP_TITLE;
@@ -31,29 +44,50 @@ class load
         }
         define('PAGE_TITLE', $title);
 
-        $css = $css.'.css';
-        if (file_exists(PUBLIC_PATH.'css'.DS.$css)) { //If the custom CSS exists, define it.
-            define('CUSTOM_CSS', $css);
+        if ('' != $css) { // Include only if defined
+            $css = $css.'.css';
+            $cssPath = PUBLIC_PATH.'css'.DS.$css;
+            if (file_exists($cssPath)) { //If the custom CSS exists, define it.
+                define('CUSTOM_CSS', $css);
+            } else {
+                lighterLogging('Lighter Framework', "CSS not found: {$css}");
+            }
         }
 
-        require VIEW_PATH.'template_header.php';
-        if (file_exists(VIEW_PATH.$page.'.php')) {
-            require VIEW_PATH.$page.'.php';
+        // Template file paths
+        $headerPath = VIEW_PATH.'template_header.php';
+        $footerPath = VIEW_PATH.'template_footer.php';
+        // Target view path
+        $pagePath = VIEW_PATH.$page.'.php';
+
+        if (file_exists($headerPath)) {
+            require $headerPath;
         } else {
-            require VIEW_PATH.'template_404.php';
+            lighterLogging('Lighter Framework', 'Template header not found', true);
         }
 
-        require VIEW_PATH.'template_footer.php';
+        if (file_exists($pagePath)) {
+            require $pagePath;
+        } else {
+            lighterLogging('Lighter Framework', 'Template target view not found', true);
+        }
+
+        if (file_exists($footerPath)) {
+            require $footerPath;
+        } else {
+            lighterLogging('Lighter Framework', 'Template footer not found', true);
+        }
     }
 
     // View a Lighter modal
-    public function viewModal($title, $page, $data = '')
+    public function viewModal($title, $modal, $data = '')
     {
-        $page = 'modal_'.$page;
-        if (file_exists(VIEW_PATH.$page.'.php')) {
+        $modal = 'modal_'.$modal;
+        $modalPath = VIEW_PATH.$modal.'.php';
+        if (file_exists($modalPath)) {
             ob_start();
 
-            include VIEW_PATH.$page.'.php';
+            include $modalPath;
             $res = ob_get_contents();
             ob_end_clean();
 
@@ -61,23 +95,28 @@ class load
                 'title' => $title,
                 'content' => $res,
             ]);
+        } else {
+            lighterLogging('Lighter Framework', "Modal not found: {$modal}", true);
         }
     }
 
     // View a Lighter fragment(frag)
-    public function viewFrag($page, $data = '')
+    public function viewFrag($frag, $data = '')
     {
-        $page = 'frag_'.$page;
-        if (file_exists(VIEW_PATH.$page.'.php')) {
+        $frag = 'frag_'.$frag;
+        $fragPath = VIEW_PATH.$frag.'.php';
+        if (file_exists($fragPath)) {
             ob_start();
 
-            include VIEW_PATH.$page.'.php';
+            include $fragPath;
             $res = ob_get_contents();
             ob_end_clean();
 
             echo json_encode([
                 'content' => $res,
             ]);
+        } else {
+            lighterLogging('Lighter Framework', "Fragment not found: {$frag}", true);
         }
     }
 }

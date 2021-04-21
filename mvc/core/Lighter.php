@@ -73,6 +73,7 @@ class Lighter
     private static function dispatch()
     {
         $url = isset($_GET['url']) ? $_GET['url'] : 'home'; //If the URL is not set, redirect to home
+        $originURL = rtrim($url, '/'); // For later reference
         $url = explode('/', rtrim($url, '/')); //Trim all the / behind URL and then split according to /
 
         $url[0] = $url[0].'Controller';
@@ -85,7 +86,7 @@ class Lighter
         if (file_exists($file)) {
             $controller = new $url[0]();
         } else {
-            lighterThrow404();
+            lighterLogging('Lighter Framework', 'Controller does not exist: '.$originURL, true);
         }
 
         if (isset($url[1])) { //Check for method in url
@@ -107,23 +108,22 @@ class Lighter
                         try {
                             $controller->{$method}(...$args); //Splat operator for arg unpacking
                         } catch (Throwable $e) {
-                            lighterLogging('Lighter Framework', 'Controller threw an error: '.$e->getMessage());
-                            lighterThrow404();
+                            lighterLogging('Lighter Framework', 'Controller threw an error: '.$e->getMessage(), true);
                         }
                     } else { //Just call the method without args
                         $controller->{$method}();
                     }
                 } else { //The method call does not have sufficient parameters!
-                    lighterThrow404();
+                    lighterLogging('Lighter Framework', "Controller '{$url[0]}' called method '{$url[1]}' with incorrect parameters: ".$originURL, true);
                 }
             } else { //Method does not exist!
-                lighterThrow404();
+                lighterLogging('Lighter Framework', "Controller '{$url[0]}' method '{$url[1]}' does not exist", true);
             }
         } else { //No method called!
             if (method_exists($controller, '__view')) { // Maybe a default view exists?
                 $controller->__view();
             } else { // Nothing that exists was called!
-                lighterThrow404();
+                lighterLogging('Lighter Framework', "Controller '{$url[0]}' does not have a default __view", true);
             }
         }
     }
