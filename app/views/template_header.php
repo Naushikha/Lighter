@@ -105,18 +105,21 @@
 	</header>
 	<main>
 		<!-- Lighter alert support -->
-		<?php if (isset($_SESSION['alert_msg'])) { ?>
-			<div id="alert" class="container <?php echo $_SESSION['alert_type']; ?>" style="margin: 0;">
-				<div class="row">
-					<div class="eleven columns">
-						<div id="alert-msg">
-							<?php echo $_SESSION['alert_msg']; ?>
+		<?php if (isset($_SESSION['LIGHTER_ALERTS'])) { ?>
+			<?php $id = 0; ?>
+			<?php foreach ($_SESSION['LIGHTER_ALERTS'] as $alert) { ?>
+				<div id="alert<?php echo $id; ?>" class="container alert <?php echo $alert['type']; ?>">
+					<div class="row">
+						<div class="eleven columns">
+							<div class="alert-msg">
+								<?php echo $alert['msg']; ?>
+							</div>
+						</div>
+						<div class="one column">
+							<span class="alert-close" onclick="$('#alert<?php echo $id++; ?>').fadeOut('fast');">&times;</span>
 						</div>
 					</div>
-					<div class="one column">
-						<span id="alert-close" onclick="$('#alert').fadeOut('fast');">&times;</span>
-					</div>
 				</div>
-			</div>
-			<?php unset($_SESSION['alert_msg']); ?>
+			<?php } ?>
+			<?php unset($_SESSION['LIGHTER_ALERTS']); ?>
 		<?php } ?>

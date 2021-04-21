@@ -2,7 +2,7 @@
 
 class MySQL
 {
-    // https://codeshack.io/super-fast-php-mysql-database-class/
+    // Based on https://codeshack.io/super-fast-php-mysql-database-class/
 
     public $query_count = 0;
 

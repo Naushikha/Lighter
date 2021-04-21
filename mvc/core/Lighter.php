@@ -104,14 +104,18 @@ class Lighter
                 //Calling the controller method
                 if (count($args) == $tmp_num) { //Sufficient parameters?
                     if (isset($args)) { //Args set?
-                        // The only way an error could occur here is if the method accessed is private
+                        // Catch any errors when executing method
                         try {
                             $controller->{$method}(...$args); //Splat operator for arg unpacking
                         } catch (Throwable $e) {
                             lighterLogging('Lighter Framework', 'Controller threw an error: '.$e->getMessage(), true);
                         }
                     } else { //Just call the method without args
-                        $controller->{$method}();
+                        try {
+                            $controller->{$method}();
+                        } catch (Throwable $e) {
+                            lighterLogging('Lighter Framework', 'Controller threw an error: '.$e->getMessage(), true);
+                        }
                     }
                 } else { //The method call does not have sufficient parameters!
                     lighterLogging('Lighter Framework', "Controller '{$url[0]}' called method '{$url[1]}' with incorrect parameters: ".$originURL, true);
@@ -121,7 +125,11 @@ class Lighter
             }
         } else { //No method called!
             if (method_exists($controller, '__view')) { // Maybe a default view exists?
-                $controller->__view();
+                try {
+                    $controller->__view();
+                } catch (Throwable $e) {
+                    lighterLogging('Lighter Framework', 'Controller threw an error: '.$e->getMessage(), true);
+                }
             } else { // Nothing that exists was called!
                 lighterLogging('Lighter Framework', "Controller '{$url[0]}' does not have a default __view", true);
             }

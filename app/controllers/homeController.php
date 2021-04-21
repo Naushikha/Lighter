@@ -25,6 +25,8 @@ class homeController extends Controller
     {
         $this->load->helper('lighterTemplate');
         lighterAlert('You sent the message: '.$_POST['msg']);
+        lighterAlert('You sent the message: '.$_POST['msg'], 'red');
+        lighterAlert('You sent the message: '.$_POST['msg'], 'green');
         lighterRedirect();
     }
 }

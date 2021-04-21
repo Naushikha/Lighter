@@ -6,7 +6,7 @@ class load
     {
         $libraryPath = LIB_PATH."{$lib}.php";
         if (file_exists($libraryPath)) {
-            include_once $libraryPath;
+            require_once $libraryPath;
         } else {
             lighterLogging('Lighter Framework', "Library not found: {$lib}", true);
         }
@@ -16,7 +16,7 @@ class load
     {
         $helperPath = HELPER_PATH."{$helper}.php";
         if (file_exists($helperPath)) {
-            include_once $helperPath;
+            require_once $helperPath;
         } else {
             lighterLogging('Lighter Framework', "Helper not found: {$helper}", true);
         }

@@ -258,32 +258,32 @@ footer #copyright {
 }
 
 /* Styling for alerts */
-#alert {
+.alert {
   z-index: 100;
-  position: fixed;
-  top: 64px;
+  margin: 5px 0;
   left: 50%;
   transform: translateX(-50%);
   min-height: 70px;
-  width: 60%;
+  width: 50%;
 
 
   border-radius: 20px;
   font-size: 1.7rem;
-  color: white;
   background-color: #3C9CED;
 }
-#alert.green {
+.alert.green {
   background-color: #1AD669;
 }
-#alert.red {
+.alert.red {
   background-color: #F10505;
 }
-#alert-msg {
-
+.alert-msg {
+  padding: 1em 0;
   text-align: center;
+  
+  color: #fff;
 }
-#alert-close {
+.alert-close {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 3rem;
   font-weight: bold;
@@ -292,7 +292,7 @@ footer #copyright {
   transition: 0.3s;
 }
 
-#alert-close:hover {
+.alert-close:hover {
   color: black;
 }
 
