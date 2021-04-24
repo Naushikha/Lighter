@@ -13,7 +13,14 @@ class homeController extends Controller
 
     protected function __view_modal_delete()
     {
-        $this->Tmodal('Delete Shit', 'delete', 'test.css');
+        $this->TcheckModals();
+        $this->Tmodal('Delete Shit', 'delete');
+    }
+
+    protected function __view_modal_delete_big()
+    {
+        $this->TcheckModals();
+        $this->Tmodal('Something big', 'delete_big');
     }
 
     protected function __view_frag_yeshome()

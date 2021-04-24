@@ -59,8 +59,9 @@ function hasScrolled() {
 }
 
 // Start modal stuff ////////////////////////////////////////
-
-function showModal(modal, data = "", url = "") {
+var modalID = 0;
+function showModal(modal, width = "", data = "", url = "") {
+  event.preventDefault(); // Useful when called from inside forms (e.g. Cancel button)
   var tmpData = { getModal: modal };
   if (data != "") {
     // If data has been passed
@@ -85,10 +86,9 @@ function showModal(modal, data = "", url = "") {
           if ($("style").data("css") != res.css) {
             $.ajax({
               url: res.css,
-              dataType: "script",
-              success: function (data) {
+              success: function (file) {
                 $("head").append(
-                  "<style data-css='" + res.css + "'>" + data + "</style>"
+                  "<style data-css='" + res.css + "'>" + file + "</style>"
                 );
               },
             });
@@ -99,26 +99,55 @@ function showModal(modal, data = "", url = "") {
         title = "Error";
         content = "Server returned something that we could not understand.";
       }
-      $("#modal-title").html(title);
-      $("#modal-content").html(content);
-      $("#modal").fadeIn("fast");
+      // Modal HTML
+      var modalHTML = `
+        <div id="modal${modalID}" data-id="${modalID}" class="modal" style="display: none;" onclick="if (event.target.id == 'modal${modalID}') closeModal(${modalID})">
+          <div id="modal${modalID}-box" class="modal-box">
+            <div class="modal-header row">
+              <div class="modal-title ten columns">
+                ${title}
+              </div>
+              <div class="two columns">
+                <span id="modal${modalID}-close" class="modal-close u-pull-right" onclick="closeModal(${modalID})">&times;</span>
+              </div>
+            </div>
+            <div class="modal-content row">
+              ${content}
+            </div>
+          </div>
+        </div>
+      `;
+      $("main").append(modalHTML);
+      $(`#modal${modalID}`).css(
+        "z-index",
+        parseInt($(`#modal${modalID}`).css("z-index")) + modalID
+      );
+      if (width != "") {
+        $(`#modal${modalID}-box`).css("width", width);
+      }
+      $(`#modal${modalID}`).fadeIn("fast");
+
+      modalID++;
     },
   });
+  return modalID - 1; // Can be used to refer to the modal just created
 }
 
-function hideModal() {
-  $("#modal").fadeOut("fast");
-  event.preventDefault(); // Useful when called from inside forms (Cancel button)
-}
-
-// Useful for setting the size, e.g. dialog boxes should be smaller, others bigger
-function styleModal(property, value) {
-  $("#modal-box").css(property, value);
+function closeModal(modalID) {
+  if (typeof modalID === "object") {
+    modalID = $(modalID).closest(".modal").data("id");
+  }
+  event.preventDefault(); // Useful when called from inside forms (e.g. Cancel button)
+  $(`#modal${modalID}`).fadeOut("fast", function () {
+    // Remove modal from DOM
+    $(`#modal${modalID}`).remove();
+  });
 }
 
 // Start frag stuff ////////////////////////////////////////
 
 function showFrag(frag, containerID, data = "", url = "") {
+  event.preventDefault(); // Useful when called from inside forms (e.g. Cancel button)
   containerID = "#" + containerID;
   var tmpData = { getFrag: frag };
   if (data != "") {
@@ -142,10 +171,9 @@ function showFrag(frag, containerID, data = "", url = "") {
           if ($("style").data("css") != res.css) {
             $.ajax({
               url: res.css,
-              dataType: "script",
-              success: function (data) {
+              success: function (file) {
                 $("head").append(
-                  "<style data-css='" + res.css + "'>" + data + "</style>"
+                  "<style data-css='" + res.css + "'>" + file + "</style>"
                 );
               },
             });

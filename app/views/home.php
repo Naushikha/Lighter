@@ -4,7 +4,7 @@
     </h1>
 
     <div class="container">
-        <button class="button-red u-center" onclick="showModal('delete');">Click Here</button>
+        <button class="button-red u-center" onclick="showModal('delete_big');">Click Here</button>
     </div>
 </div>
 <div class="container">

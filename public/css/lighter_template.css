@@ -97,23 +97,23 @@ nav ul li:not(:first-child) {
 }
 
 #sidenav ul {
-    margin: 0;
-    list-style-type: none;
+  margin: 0;
+  list-style-type: none;
 }
 
 #sidenav ul li {
-    margin: 0;
-    transition: 0.2s;
+  margin: 0;
+  transition: 0.2s;
 }
 
 #sidenav ul li a {
-    display: block;
-    margin: 0;
-    padding: 3px 2px;
+  display: block;
+  margin: 0;
+  padding: 3px 2px;
 
-    font-size: 1.7rem;
-    text-decoration: none;
-    color: #757575;
+  font-size: 1.7rem;
+  text-decoration: none;
+  color: #757575;
 }
 
 #sidenav ul ul li a {
@@ -121,162 +121,161 @@ nav ul li:not(:first-child) {
 }
 
 #sidenav ul li:hover {
-    color: black;
-    background-color: #eee;
+  color: black;
+  background-color: #eee;
 }
 
 #error {
-    font-size: 50px;
-    color: var(--blue);
+  font-size: 50px;
+  color: var(--blue);
 }
 
 #error-pic {
-    text-align: right;
-    padding: 10px;
-    margin: 0.5em 0;
-    vertical-align: middle;
-    width: 150px;
+  text-align: right;
+  padding: 10px;
+  margin: 0.5em 0;
+  vertical-align: middle;
+  width: 150px;
 }
 
 footer {
-    width: 100%;
-    background-color: #f5f5f5;
+  width: 100%;
+  background-color: #f5f5f5;
 }
 
 footer .container {
-    padding-top: 20px;
-    margin: 0 auto;
+  padding-top: 20px;
+  margin: 0 auto;
 }
 
 footer a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
-footer #desc{
-    font-style: italic;
-    margin-top: 1em;
-    justify-self: center;
+footer #desc {
+  font-style: italic;
+  margin-top: 1em;
+  justify-self: center;
 }
 
 footer .logos {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
-    justify-content: space-around;
-    margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  margin-top: 1.5rem;
 }
 
 footer #copyright {
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
-#copyright hr{
-    margin: 0.5em auto;
+#copyright hr {
+  margin: 0.5em auto;
 }
 
 /* For smaller screens the headers get messed up */
 @media (max-width: 450px) {
-    nav ul li a {
-        padding: 16px 8px;
-    }
-    #logo {
-        padding: 10px 8px;
-    }
+  nav ul li a {
+    padding: 16px 8px;
+  }
+  #logo {
+    padding: 10px 8px;
+  }
 
-    footer img {
-        width: 60%;
-        position: relative;
-        margin-bottom: 1em;
-    }
+  footer img {
+    width: 60%;
+    position: relative;
+    margin-bottom: 1em;
+  }
 }
 
 /* When it is a desktop */
 @media (min-width: 1000px) {
-    #sidenav,
-    #hambug {
-        display: none;
-    }
+  #sidenav,
+  #hambug {
+    display: none;
+  }
 
-    nav ul li:not(:first-child) {
-        display: inline;
-    }
+  nav ul li:not(:first-child) {
+    display: inline;
+  }
 
-    /* add caret for drop menu */
-    nav ul > li a:not(:only-child):after {
-        content: "\00a0▼";
-        font-size: 1.1rem;
-        vertical-align: middle;
-    }
+  /* add caret for drop menu */
+  nav ul > li a:not(:only-child):after {
+    content: "\00a0▼";
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
 
-    /* sub menu */
-    nav ul ul {
-        position: absolute;
-        min-width: 180px;
+  /* sub menu */
+  nav ul ul {
+    position: absolute;
+    min-width: 180px;
 
-        height: 0px;
-        overflow: hidden; /* hide sub menu */
-    }
+    height: 0px;
+    overflow: hidden; /* hide sub menu */
+  }
 
-    nav ul li:hover ul {
-        height: auto;
-        overflow: visible; /* show sub menu */
+  nav ul li:hover ul {
+    height: auto;
+    overflow: visible; /* show sub menu */
 
-        border: 1px solid #dcdcdc;
-    }
+    border: 1px solid #dcdcdc;
+  }
 
-    nav ul ul li {
-        display: list-item;
-        float: none;
-    }
+  nav ul ul li {
+    display: list-item;
+    float: none;
+  }
 
-    nav ul ul li a {
-        display: block;
-    }
+  nav ul ul li a {
+    display: block;
+  }
 }
 
 .u-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Styling for alerts */
 .alert {
-    z-index: 100;
-    margin: 5px 0;
-    left: 50%;
-    transform: translateX(-50%);
-    min-height: 70px;
-    width: 50%;
+  z-index: 100;
+  margin: 5px 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-height: 70px;
+  width: 50%;
 
-    border-radius: 12px;
-    font-size: 1.7rem;
-    background-color: rgba(60, 156, 237,0.1);
-    border: 1px solid var(--blue);
-    border-color: var(--blue);
-    color: var(--blue);
+  border-radius: 12px;
+  font-size: 1.7rem;
+  background-color: rgba(60, 156, 237, 0.1);
+  border: 1px solid var(--blue);
+  border-color: var(--blue);
+  color: var(--blue);
 }
 .alert.green {
-    background-color: var(--green-bg);
-    border: 1px solid var(--green);
-    border-color: var(--green);
-    color: var(--green);
+  background-color: var(--green-bg);
+  border: 1px solid var(--green);
+  border-color: var(--green);
+  color: var(--green);
 }
 .alert.red {
-    background-color: var(--red-bg);
-    border: 1px solid var(--red);
-    border-color: var(--red);
-    color: var(--red);
+  background-color: var(--red-bg);
+  border: 1px solid var(--red);
+  border-color: var(--red);
+  color: var(--red);
 }
 .alert-msg {
-    padding: 1em 0;
-    text-align: center;
-  
+  padding: 1em 0;
+  text-align: center;
 }
 .alert-close {
   font-size: 3rem;
@@ -290,7 +289,7 @@ footer #copyright {
 }
 
 /* Styling for modals */
-#modal {
+.modal {
   z-index: 1500;
   position: fixed;
   top: 0;
@@ -301,7 +300,7 @@ footer #copyright {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-#modal-box {
+.modal-box {
   position: fixed;
   top: 50vh;
   left: 50vw;
@@ -318,7 +317,7 @@ footer #copyright {
   border-radius: 5px;
 }
 
-#modal-header {
+.modal-header {
   z-index: 10;
   position: sticky;
   top: 0;
@@ -326,16 +325,15 @@ footer #copyright {
   background-color: white;
 }
 
-#modal-title {
+.modal-title {
   font-size: 2rem;
   border-bottom: 1px solid black;
 }
-#modal-close {
+.modal-close {
   height: 0;
   font-size: 4rem;
 }
-#modal-close:hover {
+.modal-close:hover {
   color: var(--blue);
   cursor: pointer;
 }
-

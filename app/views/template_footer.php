@@ -1,19 +1,3 @@
-<!-- This here is a modal that can be called by using AJAX -->
-<div id="modal" style="display: none;" onclick="if (event.target.id == 'modal') hideModal();">
-    <div id="modal-box">
-        <div id="modal-header" class="row">
-            <div id="modal-title" class="ten columns">
-                
-            </div>
-            <div class="two columns">
-                <span id="modal-close" class="u-pull-right" onclick="hideModal();">&times;</span>
-            </div>
-        </div>
-        <div id="modal-content" class="row">
-        </div>
-    </div>
-</div>
-
         </main>
         <footer>
         <div class="container" id="footer-container">
