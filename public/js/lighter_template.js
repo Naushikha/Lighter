@@ -16,7 +16,7 @@ $("html").click(function () {
   $("nav").removeClass("mobile");
 });
 
-//What does this do??
+// What does this do??
 $("nav").click(function (e) {
   e.stopPropagation();
 });
@@ -79,6 +79,21 @@ function showModal(modal, data = "", url = "") {
           title = res.title;
           content = res.content;
         }
+        // Load a CSS if specified
+        if (res.css) {
+          // Check if previously loaded
+          if ($("style").data("css") != res.css) {
+            $.ajax({
+              url: res.css,
+              dataType: "script",
+              success: function (data) {
+                $("head").append(
+                  "<style data-css='" + res.css + "'>" + data + "</style>"
+                );
+              },
+            });
+          }
+        }
       } catch (error) {
         console.error(error);
         title = "Error";
@@ -120,6 +135,21 @@ function showFrag(frag, containerID, data = "", url = "") {
         var content = "";
         if (res.content) {
           content = res.content;
+        }
+        // Load a CSS if specified
+        if (res.css) {
+          // Check if previously loaded
+          if ($("style").data("css") != res.css) {
+            $.ajax({
+              url: res.css,
+              dataType: "script",
+              success: function (data) {
+                $("head").append(
+                  "<style data-css='" + res.css + "'>" + data + "</style>"
+                );
+              },
+            });
+          }
         }
       } catch (error) {
         console.error(error);

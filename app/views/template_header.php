@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title><?php echo PAGE_TITLE; ?></title>
 	<link rel="icon" type="image/png" href="<?php echo BASEURL; ?>/public/img/favicon.svg" />
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>/public/css/normalize.css">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>/public/css/skeleton.css">
-	<link rel="stylesheet" href="<?php echo BASEURL; ?>/public/css/template.css">
+	<link rel="stylesheet" href="<?php echo BASEURL; ?>/public/css/lighter_template.css">
 	<?php if (defined('CUSTOM_CSS')) { ?>
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>/public/css/<?php echo CUSTOM_CSS; ?>">
 	<?php } ?>
@@ -86,7 +85,7 @@
 		</div>
 		<!-- End mobile side navigation bar -->
 		<script src="<?php echo BASEURL; ?>/public/js/jquery-3.5.1.min.js"></script>
-		<script src="<?php echo BASEURL; ?>/public/js/template.js"></script>
+		<script src="<?php echo BASEURL; ?>/public/js/lighter_template.js"></script>
 	</header>
 	<main>
 		<!-- Lighter alert support -->

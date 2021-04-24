@@ -8,17 +8,17 @@ class homeController extends Controller
         $this->TcheckFrags();
         $this->TcheckResponses();
 
-        $this->Tview('', 'home', 'home');
+        $this->Tview('', 'home', 'home.css');
     }
 
     protected function __view_modal_delete()
     {
-        $this->Tmodal('Delete Shit', 'delete');
+        $this->Tmodal('Delete Shit', 'delete', 'test.css');
     }
 
     protected function __view_frag_yeshome()
     {
-        $this->Tfrag('home');
+        $this->Tfrag('home', 'test2.css');
     }
 
     protected function __view_resp_sample()

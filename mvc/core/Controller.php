@@ -24,7 +24,6 @@ class Controller
         define('PAGE_TITLE', $title);
 
         if ('' != $css) { // Include only if defined
-            $css = $css.'.css';
             $cssPath = PUBLIC_PATH.'css'.DS.$css;
             if (file_exists($cssPath)) { //If the custom CSS exists, define it.
                 define('CUSTOM_CSS', $css);
@@ -72,7 +71,7 @@ class Controller
     }
 
     // View a Lighter modal
-    protected function Tmodal($title, $modal, $data = '')
+    protected function Tmodal($title, $modal, $css = '', $data = '')
     {
         $modal = 'modal_'.$modal;
         $modalPath = VIEW_PATH.$modal.'.php';
@@ -83,17 +82,27 @@ class Controller
             $res = ob_get_contents();
             ob_end_clean();
 
-            echo json_encode([
+            $jsonArray = [
                 'title' => $title,
                 'content' => $res,
-            ]);
+            ];
+            if ('' != $css) {
+                $cssPath = PUBLIC_PATH.'css'.DS.$css;
+                $cssURL = BASEURL.'/public/css/'.$css;
+                if (file_exists($cssPath)) { //If the custom CSS exists, add it to response.
+                    $jsonArray['css'] = $cssURL;
+                } else {
+                    lighterLogging('Lighter Framework', "CSS not found: {$css}");
+                }
+            }
+            echo json_encode($jsonArray);
         } else {
             lighterLogging('Lighter Framework', "Modal not found: {$modal}", true);
         }
     }
 
     // View a Lighter fragment(frag)
-    protected function Tfrag($frag, $data = '')
+    protected function Tfrag($frag, $css = '', $data = '')
     {
         $frag = 'frag_'.$frag;
         $fragPath = VIEW_PATH.$frag.'.php';
@@ -104,9 +113,19 @@ class Controller
             $res = ob_get_contents();
             ob_end_clean();
 
-            echo json_encode([
+            $jsonArray = [
                 'content' => $res,
-            ]);
+            ];
+            if ('' != $css) {
+                $cssPath = PUBLIC_PATH.'css'.DS.$css;
+                $cssURL = BASEURL.'/public/css/'.$css;
+                if (file_exists($cssPath)) { //If the custom CSS exists, add it to response.
+                    $jsonArray['css'] = $cssURL;
+                } else {
+                    lighterLogging('Lighter Framework', "CSS not found: {$css}");
+                }
+            }
+            echo json_encode($jsonArray);
         } else {
             lighterLogging('Lighter Framework', "Fragment not found: {$frag}", true);
         }

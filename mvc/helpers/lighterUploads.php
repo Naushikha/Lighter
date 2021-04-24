@@ -1,13 +1,6 @@
 <?php
 
-function lighterUploadExists($name)
-{
-    if (file_exists(UPLOAD_PATH.$name)) {
-        return true;
-    }
-
-    return false;
-}
+// Add a function to check if the upload is too large
 
 function lighterTempUploadExists($post_name)
 {
@@ -17,6 +10,15 @@ function lighterTempUploadExists($post_name)
             return false;
         }
 
+        return true;
+    }
+
+    return false;
+}
+
+function lighterUploadExists($name)
+{
+    if (file_exists(UPLOAD_PATH.$name)) {
         return true;
     }
 
