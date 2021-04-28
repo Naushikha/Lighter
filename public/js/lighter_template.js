@@ -134,7 +134,7 @@ function showModal(modal, width = "", data = "", url = "") {
 }
 
 function closeModal(modalID) {
-  if (typeof modalID === "object") {
+  if (typeof modalID === "object") { // If called from within the modal content with 'this' keyword 
     modalID = $(modalID).closest(".modal").data("id");
   }
   event.preventDefault(); // Useful when called from inside forms (e.g. Cancel button)

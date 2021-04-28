@@ -192,18 +192,18 @@ body {
   color: #222;
 }
 
-:root{
-    --blue: #3C9CED;
-    --blue-hover: #188AEA;
-    --blue-bg: rgba(60, 156, 237, 0.07);
+:root {
+  --blue: #3c9ced;
+  --blue-hover: #188aea;
+  --blue-bg: rgba(60, 156, 237, 0.07);
 
-    --green: #1bc461;
-    --green-hover: #28a745;
-    --green-bg: rgba(40, 167, 69, 0.07);
+  --green: #1bc461;
+  --green-hover: #28a745;
+  --green-bg: rgba(40, 167, 69, 0.07);
 
-    --red: #E11616;
-    --red-hover: #CE3040;
-    --red-bg: rgba(209, 45, 62, 0.07);
+  --red: #e11616;
+  --red-hover: #ce3040;
+  --red-bg: rgba(209, 45, 62, 0.07);
 }
 
 /* Typography
@@ -329,7 +329,7 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #fff;
-  background-color: var(--blue); 
+  background-color: var(--blue);
   border-color: var(--blue);
 }
 /* #33c3f0 */
