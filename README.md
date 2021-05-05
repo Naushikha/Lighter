@@ -7,7 +7,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Naushikha/lighter-framework">
+  <a href="https://github.com/Naushikha/Lighter">
     <img src="docs/logo.png" alt="Logo" height="80">
   </a>
 
@@ -21,9 +21,9 @@
     <br />
     <a href="https://demo.lighter-framework.ga">View Demo</a>
     ·
-    <a href="https://github.com/Naushikha/lighter-framework/issues">Report Bug</a>
+    <a href="https://github.com/Naushikha/Lighter/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Naushikha/lighter-framework/issues">Request Feature</a>
+    <a href="https://github.com/Naushikha/Lighter/issues">Request Feature</a>
   </p>
 </p>
 
@@ -83,11 +83,11 @@ Need a working installation of XAMPP in your system.
 
 1. Clone the repo into htdocs folder in XAMPP
    ```sh
-   git clone https://github.com/Naushikha/lighter-framework.git
+   git clone https://github.com/Naushikha/Lighter.git
    ```
 2. Check if Lighter loads properly by visiting,
    ```sh
-   http://localhost/lighter-framework
+   http://localhost/Lighter
    ```
 
 <!-- USAGE EXAMPLES -->
@@ -102,7 +102,7 @@ _For more examples, please refer to the [Documentation](https://lighter-framewor
 
 ## Roadmap
 
-See the [open issues](https://github.com/Naushikha/lighter-framework/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/Naushikha/Lighter/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -129,7 +129,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Imashi - [@imashi921](https://twitter.com/imashi921)
 Naushikha - [@naushikha](https://twitter.com/naushikha)
 
-Project Link: [https://github.com/Naushikha/lighter-framework](https://github.com/Naushikha/lighter-framework)
+Project Link: [https://github.com/Naushikha/Lighter](https://github.com/Naushikha/Lighter)
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -142,13 +142,13 @@ Project Link: [https://github.com/Naushikha/lighter-framework](https://github.co
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/Naushikha/lighter-framework.svg?style=for-the-badge
-[contributors-url]: https://github.com/Naushikha/lighter-framework/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Naushikha/lighter-framework.svg?style=for-the-badge
-[forks-url]: https://github.com/Naushikha/lighter-framework/network/members
-[stars-shield]: https://img.shields.io/github/stars/Naushikha/lighter-framework.svg?style=for-the-badge
-[stars-url]: https://github.com/Naushikha/lighter-framework/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Naushikha/lighter-framework.svg?style=for-the-badge
-[issues-url]: https://github.com/Naushikha/lighter-framework/issues
-[license-shield]: https://img.shields.io/github/license/Naushikha/lighter-framework.svg?style=for-the-badge
-[license-url]: https://github.com/Naushikha/lighter-framework/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Naushikha/Lighter.svg?style=for-the-badge
+[contributors-url]: https://github.com/Naushikha/Lighter/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Naushikha/Lighter.svg?style=for-the-badge
+[forks-url]: https://github.com/Naushikha/Lighter/network/members
+[stars-shield]: https://img.shields.io/github/stars/Naushikha/Lighter.svg?style=for-the-badge
+[stars-url]: https://github.com/Naushikha/Lighter/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Naushikha/Lighter.svg?style=for-the-badge
+[issues-url]: https://github.com/Naushikha/Lighter/issues
+[license-shield]: https://img.shields.io/github/license/Naushikha/Lighter.svg?style=for-the-badge
+[license-url]: https://github.com/Naushikha/Lighter/blob/master/LICENSE.txt
