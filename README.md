@@ -14,7 +14,7 @@
   <h3 align="center">Lighter Framework</h3>
 
   <p align="center">
-    <i> An effortless PHP framework! </i>
+    <i> An effortless PHP MVC framework! </i>
     <br />
     <a href="https://lighter-framework.readthedocs.io/"><strong>Explore the docs »</strong></a>
     <br />
